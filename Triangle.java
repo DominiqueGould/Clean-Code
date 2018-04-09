@@ -9,9 +9,9 @@ import java.awt.Point;
 public class Triangle
 {
     // instance variables - replace the example below with your own
-    private Point p1;
-    private Point p2;
-    private Point p3;
+    private Point point1;
+    private Point point2;
+    private Point point3;
     private double angle1;
     private double angle2;
     private double angle3;
@@ -19,11 +19,11 @@ public class Triangle
     /**
      * Constructor for objects of class Triangle
      */
-    public Triangle(Point p1, Point p2, Point p3)
+    public Triangle(Point point1, Point point2, Point point3)
     {
-        this.p1 = new Point(p1);
-        this.p2 = new Point(p2);
-        this.p3 = new Point(p3);
+        this.point1 = new Point(point1);
+        this.point2 = new Point(point2);
+        this.point3 = new Point(point3);
         computeAngles();
     }
 
@@ -33,7 +33,7 @@ public class Triangle
      */
     public double getSide1_Length()
     {
-        return Math.sqrt(Math.pow((p2.getX()-p1.getX()),2)+Math.pow((p2.getY()-p1.getY()), 2));
+        return Math.sqrt(Math.pow((point2.getX()-point1.getX()),2)+Math.pow((point2.getY()-point1.getY()), 2));
     }
     
     /**
@@ -42,7 +42,7 @@ public class Triangle
      */
     public double getSide2_Length()
     {
-        return Math.sqrt(Math.pow((p3.getX()-p2.getX()),2)+Math.pow((p3.getY()-p2.getY()), 2));
+        return Math.sqrt(Math.pow((point3.getX()-point2.getX()),2)+Math.pow((point3.getY()-point2.getY()), 2));
     }
     
     /**
@@ -51,7 +51,7 @@ public class Triangle
      */
     public double getSide3_Length()
     {
-        return Math.sqrt(Math.pow(p3.getX()-p1.getX(),2)+Math.pow(p3.getY()-p1.getY(),2));
+        return Math.sqrt(Math.pow(point3.getX()-point1.getX(),2)+Math.pow(point3.getY()-point1.getY(),2));
     }
     
     /**
@@ -62,54 +62,53 @@ public class Triangle
         double side1 = getSide1_Length();
         double side2 = getSide2_Length();
         double side3 = getSide3_Length();
-        double ls = 0.0;
-        double ms = 0.0;
-        double ss = 0.0;
+        double largestSide = 0.0;
+        double mediumSide = 0.0;
+        double smallestSide = 0.0;
         
         if ((side1 >= side2) && (side2 >= side3))
         {
-            ls = side1;
-            ms = side2;
-            ss = side3;
+            largestSide = side1;
+            mediumSide = side2;
+            smallestSide = side3;
         }
         else if ((side1 >= side3) && (side3 >= side2))
         {
-            ls = side1;
-            ms = side3;
-            ss = side2;
+            largestSide = side1;
+            mediumSide = side3;
+            smallestSide = side2;
         }
         else if ((side2 >= side1) && (side1 >= side3))
         {
-            ls = side2;
-            ms = side1;
-            ss = side3;
+            largestSide = side2;
+            mediumSide = side1;
+            smallestSide = side3;
         }
         else if ((side2 >= side3) && (side3 >= side1))
         {
-            ls = side2;
-            ms = side3;
-            ss = side1;
+            largestSide = side2;
+            mediumSide = side3;
+            smallestSide = side1;
         }
         else if ((side3 >= side1) && (side1 >= side2))
         {
-            ls = side3;
-            ms = side1;
-            ss = side2;
+            largestSide = side3;
+            mediumSide = side1;
+            smallestSide = side2;
         }
         else if ((side3 >= side2) && (side2 >= side1))
         {
-            ls = side3;
-            ms = side2;
-            ss = side1;
+            largestSide = side3;
+            mediumSide = side2;
+            smallestSide = side1;
         }
         
-        
-        double angle1Cos = (Math.pow(ss, 2) + Math.pow(ms, 2) - Math.pow(ls, 2)) /
-                      (2 * ms * ss);
+        double angle1Cos = (Math.pow(smallestSide, 2) + Math.pow(mediumSide, 2) - Math.pow(largestSide, 2)) /
+                      (2 * mediumSide * smallestSide);
         double angle1Radians = (Math.acos(angle1Cos));
         angle1 = Math.toDegrees(angle1Radians);
 
-        angle2 = Math.toDegrees(Math.asin((ms * Math.sin(Math.toRadians(angle1)))/ ls));
+        angle2 = Math.toDegrees(Math.asin((mediumSide * Math.sin(Math.toRadians(angle1)))/ largestSide));
 
         angle3 = 180 - angle1 - angle2;
     }
@@ -118,27 +117,27 @@ public class Triangle
     /**
      * A method that sets point 1 of the triangle.
      */
-    public void setPoint1(Point p1)
+    public void setPoint1(Point point1)
     {
-        this.p1 = new Point(p1);
+        this.point1 = new Point(point1);
         computeAngles();
     }
     
     /**
      * A method that sets point 2 of the triangle.
      */
-    public void setPoint2(Point p2)
+    public void setPoint2(Point point2)
     {
-        this.p2 = new Point(p2);
+        this.point2 = new Point(point2);
         computeAngles();
     }
     
     /**
      * A method that sets point 3 of the triangle.
      */
-    public void setPoint3(Point p3)
+    public void setPoint3(Point point3)
     {
-        this.p3 = new Point(p3);
+        this.point3 = new Point(point3);
         computeAngles();
     }
     
@@ -148,7 +147,7 @@ public class Triangle
      */
     public Point getPoint1()
     {
-        return new Point(p1);
+        return new Point(point1);
     }
     
     /**
@@ -157,7 +156,7 @@ public class Triangle
      */
     public Point getPoint2()
     {
-        return new Point(p2);
+        return new Point(point2);
     }
     
     /**
@@ -166,7 +165,7 @@ public class Triangle
      */
     public Point getPoint3()
     {
-        return new Point(p3);
+        return new Point(point3);
     }
     
     /**
@@ -202,13 +201,13 @@ public class Triangle
      */
     public String toString()
     {
-        String firstSideLength = String.format("%1.2f", getSide1_Length());
-        String secondSideLength = String.format("%1.2f", getSide2_Length());
-        String thirdSideLength = String.format("%1.2f", getSide3_Length());
-        String firstAngle = String.format("%1.2f", angle1);
-        String secondAngle = String.format("%1.2f", angle2);
-        String thirdAngle = String.format("%1.2f", angle3);
-        String triangleInfo = "First Corner Point: [" + (double)p1.getX() + ", " + (double)p1.getY() + "]" + "\n" + "Second Corner Point: [" + (double)p2.getX() + ", " + (double)p2.getY() + "]" + "\n" + "Third Corner Point: [" + (double)p3.getX() + ", " + (double)p3.getY() + "]" + "\n" + "Side 1 length: " + firstSideLength + "\n" + "Side 2 length: " + secondSideLength + "\n" + "Side 3 length: " + thirdSideLength + "\n" + "Angle1: " + firstAngle + "\n" +"Angle2: " + secondAngle + "\n" + "Angle3: " + thirdAngle;
+        String side1_Length_String = String.format("%1.2f", getSide1_Length());
+        String side2_Length_String = String.format("%1.2f", getSide2_Length());
+        String side3_Length_String = String.format("%1.2f", getSide3_Length());
+        String angle1_String = String.format("%1.2f", angle1);
+        String angle2_String = String.format("%1.2f", angle2);
+        String angle3_String = String.format("%1.2f", angle3);
+        String triangleInfo = "First Corner Point: [" + (double)point1.getX() + ", " + (double)point1.getY() + "]" + "\n" + "Second Corner Point: [" + (double)point2.getX() + ", " + (double)point2.getY() + "]" + "\n" + "Third Corner Point: [" + (double)point3.getX() + ", " + (double)point3.getY() + "]" + "\n" + "Side 1 length: " + side1_Length_String + "\n" + "Side 2 length: " + side2_Length_String + "\n" + "Side 3 length: " + side3_Length_String + "\n" + "Angle1: " + angle1_String + "\n" +"Angle2: " + angle2_String + "\n" + "Angle3: " + angle3_String;
         return triangleInfo;
     }
 }

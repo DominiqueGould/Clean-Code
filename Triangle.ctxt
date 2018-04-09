@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Triangle
-comment1.params=p1\ p2\ p3
+comment1.params=point1\ point2\ point3
 comment1.target=Triangle(java.awt.Point,\ java.awt.Point,\ java.awt.Point)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Triangle\r\n
 comment10.params=
@@ -33,13 +33,13 @@ comment4.text=\r\n\ A\ method\ that\ computes\ the\ length\ of\ Side3.\r\n\ @ret
 comment5.params=
 comment5.target=void\ computeAngles()
 comment5.text=\r\n\ A\ method\ that\ calculates\ angle1,\ angle2,\ and\ angle3\ based\ on\ the\ side\ lengths\ of\ the\ triangle.\r\n
-comment6.params=p1
+comment6.params=point1
 comment6.target=void\ setPoint1(java.awt.Point)
 comment6.text=\r\n\ A\ method\ that\ sets\ point\ 1\ of\ the\ triangle.\r\n
-comment7.params=p2
+comment7.params=point2
 comment7.target=void\ setPoint2(java.awt.Point)
 comment7.text=\r\n\ A\ method\ that\ sets\ point\ 2\ of\ the\ triangle.\r\n
-comment8.params=p3
+comment8.params=point3
 comment8.target=void\ setPoint3(java.awt.Point)
 comment8.text=\r\n\ A\ method\ that\ sets\ point\ 3\ of\ the\ triangle.\r\n
 comment9.params=

@@ -14,7 +14,7 @@ import org.junit.Test;
  */
 public class TriangleTest
 {
-    private Triangle t1, t2, t3;
+    private Triangle triangle1, triangle2, triangle3;
     private final double EPSILON = 0.0001;
     /**
      * Sets up the test fixture.
@@ -24,15 +24,15 @@ public class TriangleTest
     @Before
     public void setUp()
     {
-        t1 = new Triangle(new Point(1, 3), 
+        triangle1 = new Triangle(new Point(1, 3), 
                           new Point(-2, -2), 
                           new Point(3, -1) );
         
-        t2 = new Triangle(new Point(1, 5),
+        triangle2 = new Triangle(new Point(1, 5),
                           new Point(-3, 2),
                           new Point(1, -2) );
                           
-        t3 = new Triangle(new Point(-3, 2),
+        triangle3 = new Triangle(new Point(-3, 2),
                           new Point(5, 2),
                           new Point(0, -3) );        
     }
@@ -41,7 +41,7 @@ public class TriangleTest
     @Test
     public void test_getSide1_Length()  {
         // rounding side1_Length to two decimal places first
-        double roundOff = (double) Math.round(t1.getSide1_Length() * 100) / 100;
+        double roundOff = (double) Math.round(triangle1.getSide1_Length() * 100) / 100;
         
         assertEquals(5.83, roundOff, EPSILON);
     }
@@ -51,7 +51,7 @@ public class TriangleTest
     @Test
     public void test_getSide2_Length() {
         // rounding side2_Length to two decimal places first
-        double roundOff = (double) Math.round(t1.getSide2_Length() * 100) / 100;
+        double roundOff = (double) Math.round(triangle1.getSide2_Length() * 100) / 100;
         
         assertEquals(5.10, roundOff, EPSILON);
     }
@@ -60,7 +60,7 @@ public class TriangleTest
     @Test
     public void test_getSide3_Length() {
         // rounding side3_Length to two decimal places first
-        double roundOff = (double) Math.round(t1.getSide3_Length() * 100) / 100;
+        double roundOff = (double) Math.round(triangle1.getSide3_Length() * 100) / 100;
         
         assertEquals(4.47, roundOff, EPSILON);
     }
@@ -70,7 +70,7 @@ public class TriangleTest
     public void test_Angle1()
     {
         // rounding largest angle to two decimal places first
-        double roundOff = (double) Math.round(t1.getAngle1() * 100) / 100;
+        double roundOff = (double) Math.round(triangle1.getAngle1() * 100) / 100;
         
         assertEquals(74.74, roundOff, EPSILON);    
     }
@@ -89,14 +89,14 @@ public class TriangleTest
         "Angle2: 57.53\n" +
         "Angle3: 47.73";
         
-        assertEquals(s, t1.toString());
+        assertEquals(s, triangle1.toString());
     }
     
     // After changing the first Corner point of t1 to (1,8)
     @Test
     public void test_setPoint1()
     {
-        t1.setPoint1(new Point(1, 8));
+        triangle1.setPoint1(new Point(1, 8));
         String s =
         "First Corner Point: [1.0, 8.0]\n" +
         "Second Corner Point: [-2.0, -2.0]\n" +
@@ -108,7 +108,7 @@ public class TriangleTest
         "Angle2: 61.99\n" +
         "Angle3: 29.23";
         
-        assertEquals(s, t1.toString());
+        assertEquals(s, triangle1.toString());
     }        
     
     @Test
@@ -125,14 +125,14 @@ public class TriangleTest
         "Angle2: 53.13\n" +
         "Angle3: 45.00";
 
-        assertEquals(s, t2.toString());
+        assertEquals(s, triangle2.toString());
     }
     
     // After changing the second corner point in t2, t2 has to be:
     @Test
     public void test_setPoint2()
     {
-        t2.setPoint2(new Point(-3, 0));
+        triangle2.setPoint2(new Point(-3, 0));
         String s =
         "First Corner Point: [1.0, 5.0]\n" +
         "Second Corner Point: [-3.0, 0.0]\n" +
@@ -144,7 +144,7 @@ public class TriangleTest
         "Angle2: 63.43\n"+
         "Angle3: 38.66";
         
-        assertEquals(s, t2.toString() );
+        assertEquals(s, triangle2.toString() );
     }
 
     @Test
@@ -161,7 +161,7 @@ public class TriangleTest
         "Angle2: 59.04\n" +
         "Angle3: 45.00";
 
-        assertEquals(s, t3.toString());
+        assertEquals(s, triangle3.toString());
     }
     
     
@@ -169,7 +169,7 @@ public class TriangleTest
     @Test
     public void test_setPoint3()
     {
-        t3.setPoint3(new Point(-2, -3));
+        triangle3.setPoint3(new Point(-2, -3));
         String s =
         "First Corner Point: [-3.0, 2.0]\n" +
         "Second Corner Point: [5.0, 2.0]\n" +
@@ -181,7 +181,7 @@ public class TriangleTest
         "Angle2: 65.77\n" +
         "Angle3: 35.54";
         
-        assertEquals(s, t3.toString());
+        assertEquals(s, triangle3.toString());
     }   
     
     @Test
@@ -190,8 +190,8 @@ public class TriangleTest
     // not change even if the copy changes
     public void test_getPoint1()
     {
-        Point pt1 = t1.getPoint1();
-        pt1.setLocation(2, 4);  // t1's pt1 should not change
+        Point point1 = triangle1.getPoint1();
+        point1.setLocation(2, 4);  // t1's pt1 should not change
            
         String s = 
         "First Corner Point: [1.0, 3.0]\n" +
@@ -204,7 +204,7 @@ public class TriangleTest
         "Angle2: 57.53\n" +
         "Angle3: 47.73";
         
-        assertEquals(s, t1.toString());
+        assertEquals(s, triangle1.toString());
     }
 }
 
