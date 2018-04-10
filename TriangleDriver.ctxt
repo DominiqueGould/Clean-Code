@@ -1,6 +1,5 @@
 #BlueJ class context
 comment0.target=TriangleDriver
-comment0.text=\r\n\ The\ Driver\ class\ for\ Triangle,\ which\ prompts\ the\ user\ for\ x\ and\ y\r\n\ coordinates\ for\ three\ points,\ then\ prints\ the\ points\ and\ the\ side\ lengths\r\n\ and\ the\ angles\ of\ the\ resulting\ triangle.\r\n\r\n\ @Dominique\ Gould\r\n\ @version\ 4-10-18\r\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
 numComments=2
