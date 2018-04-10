@@ -7,20 +7,16 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * The test class TriangleTest.
+ * Test class which tests the Triangle class.
  *
- * @author  CS 140 Instructors
- * @version 2/16/2017
+ * @author CS 140 Instructors
+ * @author Dominique Gould
+ * @version 4-10-18
  */
 public class TriangleTest
 {
     private Triangle triangle1, triangle2, triangle3;
     private final double EPSILON = 0.0001;
-    /**
-     * Sets up the test fixture.
-     *
-     * Called before every test case method.
-     */
     @Before
     public void setUp()
     {
@@ -37,7 +33,6 @@ public class TriangleTest
                           new Point(0, -3) );        
     }
 
-    // testing the distance between p1 and p2
     @Test
     public void test_getSide1_Length()  {
         // rounding side1_Length to two decimal places first
@@ -47,29 +42,23 @@ public class TriangleTest
     }
     
     
-    // testing the distance between p2 and p3
     @Test
     public void test_getSide2_Length() {
-        // rounding side2_Length to two decimal places first
         double roundOff = (double) Math.round(triangle1.getSide2_Length() * 100) / 100;
         
         assertEquals(5.10, roundOff, EPSILON);
     }
     
-    // testing the distance between p3 and p1
     @Test
     public void test_getSide3_Length() {
-        // rounding side3_Length to two decimal places first
         double roundOff = (double) Math.round(triangle1.getSide3_Length() * 100) / 100;
         
         assertEquals(4.47, roundOff, EPSILON);
     }
     
-    // testing the largest angle
     @Test
     public void test_Angle1()
     {
-        // rounding largest angle to two decimal places first
         double roundOff = (double) Math.round(triangle1.getAngle1() * 100) / 100;
         
         assertEquals(74.74, roundOff, EPSILON);    
@@ -92,7 +81,10 @@ public class TriangleTest
         assertEquals(s, triangle1.toString());
     }
     
-    // After changing the first Corner point of t1 to (1,8)
+    /**
+     * verify toString changes correctly after changing the first Corner
+     * point of triangle1 to (1,8)
+     */
     @Test
     public void test_setPoint1()
     {
@@ -128,7 +120,6 @@ public class TriangleTest
         assertEquals(s, triangle2.toString());
     }
     
-    // After changing the second corner point in t2, t2 has to be:
     @Test
     public void test_setPoint2()
     {
@@ -164,8 +155,6 @@ public class TriangleTest
         assertEquals(s, triangle3.toString());
     }
     
-    
-    // After changing the third Corner Point, t3 has to be
     @Test
     public void test_setPoint3()
     {
@@ -184,14 +173,15 @@ public class TriangleTest
         assertEquals(s, triangle3.toString());
     }   
     
+    /**
+     * Testing getPoint1 method.  Since getPoint1 returns a copy of point1,
+     * the Triangle object should not change even if the copy changes.
+     */
     @Test
-    // Testing getPoint1 method.  Since getPoint1 returns
-    // a copy of the point1, the Triangle object should 
-    // not change even if the copy changes
     public void test_getPoint1()
     {
         Point point1 = triangle1.getPoint1();
-        point1.setLocation(2, 4);  // t1's pt1 should not change
+        point1.setLocation(2, 4);
            
         String s = 
         "First Corner Point: [1.0, 3.0]\n" +

@@ -1,14 +1,12 @@
-
 /**
  * A class to represent a triangle in two-dimensional space.
  * 
  * @author Dominique Gould
- * @version 3-8-17
+ * @version 4-10-18
  */
 import java.awt.Point;
 public class Triangle
 {
-    // instance variables - replace the example below with your own
     private Point point1;
     private Point point2;
     private Point point3;
@@ -18,9 +16,6 @@ public class Triangle
     private double angle2;
     private double angle3;
 
-    /**
-     * Constructor for objects of class Triangle
-     */
     public Triangle(Point point1, Point point2, Point point3)
     {
         this.point1 = new Point(point1);
@@ -29,9 +24,6 @@ public class Triangle
         computeAngles();
     }
     
-    /**
-     * A method that calculates angle1, angle2, and angle3 based on the side lengths of the triangle.
-     */
     private void computeAngles()
     {
         calculateSideLengths();
@@ -103,118 +95,69 @@ public class Triangle
         }
     }
     
-    /**
-     * A method that computes the length of Side1.
-     * @return the length of Side1
-     */
     public double getSide1_Length()
     {
         return side1;
     }
     
-     /**
-     * A method that computes the length of Side2.
-     * @return the length of Side1
-     */
     public double getSide2_Length()
     {
         return side2;
     }
     
-    /**
-     * A method that computes the length of Side3.
-     * @return the length of Side3
-     */
     public double getSide3_Length()
     {
         return side3;
     }
 
-    /**
-     * A method that sets point 1 of the triangle.
-     */
     public void setPoint1(Point point1)
     {
         this.point1 = new Point(point1);
         computeAngles();
     }
     
-    /**
-     * A method that sets point 2 of the triangle.
-     */
     public void setPoint2(Point point2)
     {
         this.point2 = new Point(point2);
         computeAngles();
     }
     
-    /**
-     * A method that sets point 3 of the triangle.
-     */
     public void setPoint3(Point point3)
     {
         this.point3 = new Point(point3);
         computeAngles();
     }
     
-    /**
-     * A method that returns point 1 of the triangle.
-     * @return point 1
-     */
     public Point getPoint1()
     {
         return new Point(point1);
     }
     
-    /**
-     * A method that returns point 2 of the triangle.
-     * @return point 2
-     */
     public Point getPoint2()
     {
         return new Point(point2);
     }
     
-    /**
-     * A method that returns point 3 of the triangle.
-     * @return point 3
-     */
     public Point getPoint3()
     {
         return new Point(point3);
     }
     
-    /**
-     * A method that returns angle1.
-     * @return angle1
-     */
     public double getAngle1()
     {
         return angle1;
     }
     
-    /**
-     * A method that returns angle2.
-     * @return angle2
-     */
     public double getAngle2()
     {
         return angle2;
     }
     
-    /**
-     * A method that returns angle3.
-     * @return angle3
-     */
     public double getAngle3()
     {
         return angle3;
     }
     
-    /**
-     * A method that prints information about the triangle.
-     * @return the corner points, the three side lengths, and the three angles of the triangle.
-     */
     public String toString()
     {
         String side1_Length_String = String.format("%1.2f", side1);

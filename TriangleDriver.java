@@ -1,10 +1,12 @@
 import java.awt.Point;
 import java.util.Scanner;
 /**
- * The Driver class for Triangle.
+ * The Driver class for Triangle, which prompts the user for x and y
+ * coordinates for three points, then prints the points and the side lengths
+ * and the angles of the resulting triangle.
  *
  * @Dominique Gould
- * @version
+ * @version 4-10-18
  */
 public class TriangleDriver
 {
