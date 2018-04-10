@@ -9,8 +9,8 @@ import java.awt.Point;
 
 public class Triangle {
     private Point point1, point2, point3;
-    private double side1 = 0.0, side2 = 0.0, side3 = 0.0;
-    private double largestSide = 0.0, mediumSide = 0.0, smallestSide = 0.0;
+    private double side1, side2, side3;
+    private double largestSide, mediumSide, smallestSide;
     private double angle1, angle2, angle3;
 
     public Triangle(Point point1, Point point2, Point point3) {

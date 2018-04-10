@@ -80,6 +80,38 @@ public class TriangleTest {
         assertEquals(s, triangle1.toString());
     }
     
+    @Test
+    public void test2_toString() {
+        String s = 
+        "First Corner Point: [1.0, 5.0]\n" +
+        "Second Corner Point: [-3.0, 2.0]\n" +
+        "Third Corner Point: [1.0, -2.0]\n" +
+        "Side 1 length: 5.00\n" +
+        "Side 2 length: 5.66\n" +
+        "Side 3 length: 7.00\n" +
+        "Angle1: 81.87\n" +
+        "Angle2: 53.13\n" +
+        "Angle3: 45.00";
+
+        assertEquals(s, triangle2.toString());
+    }
+    
+    @Test
+    public void test3_toString() {
+        String s =
+        "First Corner Point: [-3.0, 2.0]\n" +
+        "Second Corner Point: [5.0, 2.0]\n" +
+        "Third Corner Point: [0.0, -3.0]\n" +
+        "Side 1 length: 8.00\n" +
+        "Side 2 length: 7.07\n" +
+        "Side 3 length: 5.83\n" +
+        "Angle1: 75.96\n" +
+        "Angle2: 59.04\n" +
+        "Angle3: 45.00";
+
+        assertEquals(s, triangle3.toString());
+    }
+    
     /**
      * verify toString changes correctly after changing the first Corner
      * point of triangle1 to (1,8)
@@ -102,22 +134,6 @@ public class TriangleTest {
     }        
     
     @Test
-    public void test2_toString() {
-        String s = 
-        "First Corner Point: [1.0, 5.0]\n" +
-        "Second Corner Point: [-3.0, 2.0]\n" +
-        "Third Corner Point: [1.0, -2.0]\n" +
-        "Side 1 length: 5.00\n" +
-        "Side 2 length: 5.66\n" +
-        "Side 3 length: 7.00\n" +
-        "Angle1: 81.87\n" +
-        "Angle2: 53.13\n" +
-        "Angle3: 45.00";
-
-        assertEquals(s, triangle2.toString());
-    }
-    
-    @Test
     public void test_setPoint2() {
         triangle2.setPoint2(new Point(-3, 0));
         String s =
@@ -132,22 +148,6 @@ public class TriangleTest {
         "Angle3: 38.66";
         
         assertEquals(s, triangle2.toString() );
-    }
-
-    @Test
-    public void test3_toString() {
-        String s =
-        "First Corner Point: [-3.0, 2.0]\n" +
-        "Second Corner Point: [5.0, 2.0]\n" +
-        "Third Corner Point: [0.0, -3.0]\n" +
-        "Side 1 length: 8.00\n" +
-        "Side 2 length: 7.07\n" +
-        "Side 3 length: 5.83\n" +
-        "Angle1: 75.96\n" +
-        "Angle2: 59.04\n" +
-        "Angle3: 45.00";
-
-        assertEquals(s, triangle3.toString());
     }
     
     @Test
