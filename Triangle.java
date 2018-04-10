@@ -12,6 +12,8 @@ public class Triangle
     private Point point1;
     private Point point2;
     private Point point3;
+    private double side1 = 0.0, side2 = 0.0, side3 = 0.0;
+    private double largestSide = 0.0, mediumSide = 0.0, smallestSide = 0.0;
     private double angle1;
     private double angle2;
     private double angle3;
@@ -26,46 +28,43 @@ public class Triangle
         this.point3 = new Point(point3);
         computeAngles();
     }
-
-    /**
-     * A method that computes the length of Side1.
-     * @return the length of Side1
-     */
-    public double getSide1_Length()
-    {
-        return Math.sqrt(Math.pow((point2.getX()-point1.getX()),2)+Math.pow((point2.getY()-point1.getY()), 2));
-    }
-    
-    /**
-     * A method that computes the length of Side2.
-     * @return the length of Side1
-     */
-    public double getSide2_Length()
-    {
-        return Math.sqrt(Math.pow((point3.getX()-point2.getX()),2)+Math.pow((point3.getY()-point2.getY()), 2));
-    }
-    
-    /**
-     * A method that computes the length of Side3.
-     * @return the length of Side3
-     */
-    public double getSide3_Length()
-    {
-        return Math.sqrt(Math.pow(point3.getX()-point1.getX(),2)+Math.pow(point3.getY()-point1.getY(),2));
-    }
     
     /**
      * A method that calculates angle1, angle2, and angle3 based on the side lengths of the triangle.
      */
     private void computeAngles()
     {
-        double side1 = getSide1_Length();
-        double side2 = getSide2_Length();
-        double side3 = getSide3_Length();
-        double largestSide = 0.0;
-        double mediumSide = 0.0;
-        double smallestSide = 0.0;
+        calculateSideLengths();
+        findLargestSmallestAndMediumSide();
+
+        double angle1Cos = (Math.pow(smallestSide, 2) + Math.pow(mediumSide, 2) - Math.pow(largestSide, 2)) /
+                      (2 * mediumSide * smallestSide);
+        double angle1Radians = (Math.acos(angle1Cos));
+        angle1 = Math.toDegrees(angle1Radians);
+
+        angle2 = Math.toDegrees(Math.asin((mediumSide * Math.sin(Math.toRadians(angle1)))/ largestSide));
+
+        angle3 = 180 - angle1 - angle2;
+    }
+    
+    public void calculateSideLengths() {
+        double a1_Squared = Math.pow((point2.getX()-point1.getX()), 2);
+        double b1_Squared = Math.pow((point2.getY()-point1.getY()), 2);
+        double c1_Squared = a1_Squared + b1_Squared;
+        side1 = Math.sqrt(c1_Squared);
         
+        double a2_Squared = Math.pow((point3.getX()-point2.getX()), 2);
+        double b2_Squared = Math.pow((point3.getY()-point2.getY()), 2);
+        double c2_Squared = a2_Squared + b2_Squared;
+        side2 = Math.sqrt(c2_Squared);
+        
+        double a3_Squared = Math.pow(point3.getX()-point1.getX(), 2);
+        double b3_Squared = Math.pow(point3.getY()-point1.getY(), 2);
+        double c3_Squared = a3_Squared + b3_Squared;
+        side3 = Math.sqrt(c3_Squared);
+    }
+    
+    public void findLargestSmallestAndMediumSide() {
         if ((side1 >= side2) && (side2 >= side3))
         {
             largestSide = side1;
@@ -102,18 +101,35 @@ public class Triangle
             mediumSide = side2;
             smallestSide = side1;
         }
-        
-        double angle1Cos = (Math.pow(smallestSide, 2) + Math.pow(mediumSide, 2) - Math.pow(largestSide, 2)) /
-                      (2 * mediumSide * smallestSide);
-        double angle1Radians = (Math.acos(angle1Cos));
-        angle1 = Math.toDegrees(angle1Radians);
-
-        angle2 = Math.toDegrees(Math.asin((mediumSide * Math.sin(Math.toRadians(angle1)))/ largestSide));
-
-        angle3 = 180 - angle1 - angle2;
+    }
+    
+    /**
+     * A method that computes the length of Side1.
+     * @return the length of Side1
+     */
+    public double getSide1_Length()
+    {
+        return side1;
+    }
+    
+     /**
+     * A method that computes the length of Side2.
+     * @return the length of Side1
+     */
+    public double getSide2_Length()
+    {
+        return side2;
+    }
+    
+    /**
+     * A method that computes the length of Side3.
+     * @return the length of Side3
+     */
+    public double getSide3_Length()
+    {
+        return side3;
     }
 
-    
     /**
      * A method that sets point 1 of the triangle.
      */
@@ -201,9 +217,9 @@ public class Triangle
      */
     public String toString()
     {
-        String side1_Length_String = String.format("%1.2f", getSide1_Length());
-        String side2_Length_String = String.format("%1.2f", getSide2_Length());
-        String side3_Length_String = String.format("%1.2f", getSide3_Length());
+        String side1_Length_String = String.format("%1.2f", side1);
+        String side2_Length_String = String.format("%1.2f", side2);
+        String side3_Length_String = String.format("%1.2f", side3);
         String angle1_String = String.format("%1.2f", angle1);
         String angle2_String = String.format("%1.2f", angle2);
         String angle3_String = String.format("%1.2f", angle3);
